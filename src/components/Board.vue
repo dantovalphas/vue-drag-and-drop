@@ -34,7 +34,7 @@
             listId = list.id;
           "
           class="mt-auto"
-          >Add card</v-btn
+          >Agregar</v-btn
         >
       </div>
       <v-dialog v-model="dialogCard" persistent max-width="600px">
@@ -138,6 +138,43 @@ export default {
               {
                 id: "12853af4-bffc-4954-91f8-cd8b3b27059d",
                 title: "Prospecto #3",
+                dateCreated: "2021-08-31",
+              },
+            ],
+            dateCreated: "2021-08-31",
+          },
+          {
+            id: "22792a1b-e6b8-45b2-a4bb-1d12f657483f",
+            title: "Reunion técnica",
+            cards: [
+              {
+                id: "c2bc03c9-5c06-4b4c-b37e-8b4b180f6466",
+                title: "Prospecto #4",
+                dateCreated: "2021-08-31",
+              },
+            ],
+            dateCreated: "2021-08-31",
+          },
+          {
+            id: "8d295ca8-f03e-4fe7-940e-b7ab288640d3",
+            title: "Reunion psicotécnica",
+            cards: [
+              {
+                id: "95239b20-f28d-459d-b4c4-861b82139ab3",
+                title: "Prospecto #5",
+                dateCreated: "2021-08-31",
+              },
+            ],
+            dateCreated: "2021-08-31",
+          },
+
+          {
+            id: "f3a0d2a5-93e4-4e17-8607-cc88e62c1482",
+            title: "A contratar",
+            cards: [
+              {
+                id: "d80625bc-b3f1-4d9f-8682-fd4008643a67",
+                title: "Prospecto #6",
                 dateCreated: "2021-08-31",
               },
             ],
