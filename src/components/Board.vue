@@ -1,7 +1,15 @@
 <template>
-  <div class="pm-4 ma-4">
-    <h3>{{ board.title }}</h3>
-    <small>created {{ formatDate(board.dateCreated) }}</small>
+  <div
+    class="d-flex flex-column board"
+    :style="`background-color:${board.color}`"
+  >
+    <div class="d-flex flex-row justify-space-between">
+      <h3>{{ board.title }}</h3>
+      <v-btn depressed @click="dialogCard = true" class="mt-auto"
+        >Agregar</v-btn
+      >
+    </div>
+
     <div class="d-flex flex-row pr-6 pt-3">
       <div
         v-for="list in board.lists"
@@ -26,28 +34,18 @@
         >
           <v-card-text> {{ card.title }} </v-card-text>
         </v-card>
-
-        <v-btn
-          depressed
-          @click="
-            dialogCard = true;
-            listId = list.id;
-          "
-          class="mt-auto"
-          >Agregar</v-btn
-        >
       </div>
       <v-dialog v-model="dialogCard" persistent max-width="600px">
         <v-card elevation="0">
           <v-card-title>
-            <span class="headline">Card name</span>
+            <span class="headline">Titulo</span>
           </v-card-title>
           <v-card-text>
             <v-container>
               <v-row>
                 <v-col cols="12">
                   <v-text-field
-                    label="Stuff to do"
+                    label="Titulo de la tarjeta"
                     v-model="card.title"
                     required
                   ></v-text-field>
@@ -58,10 +56,10 @@
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn color="blue darken-1" text @click="dialogCard = false">
-              Close
+              Cerrar
             </v-btn>
             <v-btn color="blue darken-1" text @click="createCard()">
-              Save
+              Guardar
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -87,13 +85,13 @@
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn color="red darken-1" text @click="deleteCard()">
-              Delete
+              Eliminar
             </v-btn>
             <v-btn color="blue darken-1" text @click="dialogEditCard = false">
-              Close
+              Cerrar
             </v-btn>
             <v-btn color="blue darken-1" text @click="updateCard()">
-              Save
+              Guardar
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -111,6 +109,7 @@ export default {
   data() {
     return {
       board: {
+        color: "#ffffff",
         title: "Reclutamiento",
         dateCreated: "2021-08-31",
         lists: [
@@ -221,6 +220,7 @@ export default {
       if (that.card.title != "") {
         //add to firebase
         //Let's give our card a created date.
+        that.listId = "476edd1b-a98c-4d4f-9361-5b670c1a1450";
         that.card.id = uuidv4();
         that.card.dateCreated = Date.now();
         that.card.listId = that.listId;
@@ -340,8 +340,9 @@ export default {
 <style scoped>
 .board {
   padding: 12px;
+  margin: 20px;
   height: 100vh;
-  overflow: scroll;
+  overflow: auto;
 }
 .list {
   min-width: 250px;
@@ -349,24 +350,5 @@ export default {
   padding: 25px;
   border-radius: 12px;
   min-height: 70vh;
-}
-
-.create-list {
-  background-color: rgb(228 228 228 / 35%);
-}
-
-a {
-  text-decoration: none;
-}
-
-.menu-items a {
-  color: #000000;
-  padding: 10px 0px 10px 3px;
-  font-size: 24px;
-}
-
-.jello-topbar {
-  background-color: rgb(255, 255, 255, 0);
-  padding: 0px;
 }
 </style>
