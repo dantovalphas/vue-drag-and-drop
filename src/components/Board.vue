@@ -166,7 +166,23 @@ export default {
             ],
             dateCreated: "2021-08-31",
           },
-
+          {
+            id: "21aa8166-76d7-43b0-9693-be7d9f3e6cd0",
+            title: "Aceptación del cliente",
+            cards: [
+              {
+                id: "f473404e-c57e-4000-b178-fee108719b2a",
+                title: "Prospecto #6",
+                dateCreated: "2021-08-31",
+              },
+              {
+                id: "7768187d-96fb-478d-b85e-9581ceb34e3f",
+                title: "Prospecto #6",
+                dateCreated: "2021-08-31",
+              },
+            ],
+            dateCreated: "2021-08-31",
+          },
           {
             id: "f3a0d2a5-93e4-4e17-8607-cc88e62c1482",
             title: "A contratar",
@@ -218,7 +234,6 @@ export default {
       //show modal to capture card name
       //add card
       if (that.card.title != "") {
-        //add to firebase
         //Let's give our card a created date.
         that.listId = "476edd1b-a98c-4d4f-9361-5b670c1a1450";
         that.card.id = uuidv4();
