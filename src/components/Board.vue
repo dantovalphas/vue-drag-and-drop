@@ -311,7 +311,7 @@ export default {
           //correct list, now find card
           for (let card of list.cards) {
             if (card.id === that.currentCard.id) {
-              console.log("card", card);
+              console.log("card 2", card);
             }
           }
         }
